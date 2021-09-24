@@ -1,0 +1,14 @@
+.titulo-menu{
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 25px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.avatar-name{
+    font-weight: bold;
+    font-size: 20px;
+    color: #394066;
+    padding-right: 15px;
+}

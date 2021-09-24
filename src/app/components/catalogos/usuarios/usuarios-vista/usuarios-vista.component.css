@@ -1,0 +1,12 @@
+.label-usuario{
+    font-weight: bold;
+    color: #4f6685;
+    font-size: 12px;
+    margin-bottom: 0;
+}
+.value-usuario{
+    font-size: 15px;
+}
+.activo{
+    font-weight: bold;
+}

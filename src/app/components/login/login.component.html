@@ -1,0 +1,27 @@
+<div class="p-p-6">
+    <p-card class="p-m-6 p-pt-4 p-text-center p-shadow-10">
+        <ng-template pTemplate="header" class="p-p-6">
+            <h1 class='titulo-sesion'>Iniciar Sesión</h1>
+            <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+                <div class="p-field p-grid">
+                    <div class="p-col p-text-right">
+                        <label for="email" class="p-col-fixed ">E-mail</label>
+                    </div>
+                    <div class="p-col  p-text-left">
+                        <input id="email" name="email" ngModel type="text" required pInputText> 
+                    </div>
+                </div>
+                <div class="p-field p-grid">
+                    <div class="p-col p-text-right">
+                        <label for="password" class="p-col-fixed">Contraseña</label>
+                    </div>
+                    <div class="p-col p-text-left">
+                        <input id="password" name="password" ngModel type="password" required [feedback]="false" pPassword> 
+                    </div>
+                </div>
+                <button pButton input="submit" label="Ingresar"></button>
+            
+            </form>
+        </ng-template>
+    </p-card>
+</div>

@@ -1,0 +1,50 @@
+<app-header></app-header>
+<div class="conteiner p-grid p-d-flex p-jc-center">
+    <p-card class="p-col-12 p-md-10 p-lg-8">
+        <div class="contenido">
+            <div class="titulo">Usuarios</div>
+            <p-divider align="right">
+                <p-button label="Nuevo" icon="pi pi-plus" styleClass="p-button-outlined p-button-success" (click)="abrirFormularioNuevo()"></p-button>
+            </p-divider>
+            <span class="p-fluid">
+                <p-autoComplete 
+                    placeholder="Buscar"
+                    field="nombre_completo" 
+                    [forceSelection]="true" 
+                    [(ngModel)]="usuarioSelect" 
+                    [suggestions]="resultadoBusqueda" 
+                    (completeMethod)="busqueda($event)"
+                    (onSelect)="informacion()"
+                    ></p-autoComplete>
+            </span>
+            <div *ngIf='etapa != null'>
+                <p-divider align="left">
+                    <div class="p-d-inline-flex p-ai-center" *ngIf="usuarioInformacion.persona.nombre == ''; else elseBlock">
+                        <i class="pi pi-user p-mr-2"></i>
+                        <b>{{usuarioSelect.nombre_completo}}</b>
+                    </div>
+                    <ng-template #elseBlock>
+                        <div class="p-d-inline-flex p-ai-center">
+                            <i class="pi pi-user p-mr-2"></i>
+                            <b>{{usuarioInformacion.persona.nombre}} {{usuarioInformacion.persona.apellido_p}} {{usuarioInformacion.persona.apellido_m}}</b>
+                        </div>
+                    </ng-template>
+                </p-divider>
+                <div *ngIf="etapa == 'vista'">
+                    <app-usuarios-vista [usuarioPadre]="usuarioInformacion"></app-usuarios-vista>
+                    <p-divider align="right">
+                        <p-button label="Editar" icon="pi pi-pencil" styleClass="p-button-warning" (click)="etapa='formulario'"></p-button>
+                    </p-divider>
+                </div>
+                <div *ngIf="etapa == 'formulario'">
+                    <app-usuarios-formulario [usuarioPadre]="usuarioInformacion" (cambiarEtapa)="cambiarEtapa($event)"></app-usuarios-formulario>
+                </div>
+
+            </div>
+        </div>
+        
+        
+    </p-card>
+    
+    
+</div>

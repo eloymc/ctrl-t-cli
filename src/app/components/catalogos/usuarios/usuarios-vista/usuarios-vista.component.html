@@ -1,0 +1,56 @@
+<div class="p-grid">
+    <div class="p-col-12 p-md-6">
+        <div class="box">
+            <p class="label-usuario">E-mail</p>
+            <p class="value-usuario">{{usuarioPadre.email}}</p>
+        </div>
+    </div>
+    <div class="p-col-6 p-md-3">
+        <div class="box">
+            <p class="label-usuario">Activo</p>
+            <p class="value-usuario activo" [ngStyle]="{color:'var(--green-700)'}" *ngIf="usuarioPadre.activo">
+                <i class="pi pi-check" ></i> Si
+            </p>
+            <p class="value-usuario activo" [ngStyle]="{color:'var(--orange-700)'}" *ngIf="!usuarioPadre.activo">
+                <i class="pi pi-times" ></i> No
+            </p>
+        </div>
+    </div>
+    <div class="p-col-6 p-md-3" *ngIf="usuarioPadre.persona.id != 0">
+        <div class="box">
+            <p class="label-usuario">Genero</p>
+            <p class="value-usuario" *ngIf="usuarioPadre.persona.genero=='H'">
+                <i class="pi pi-circle-on" [ngStyle]="{color:'var(--blue-700)'}"></i> Hombre
+            </p>
+            <p class="value-usuario" *ngIf="usuarioPadre.persona.genero=='M'">
+                <i class="pi pi-circle-on" [ngStyle]="{color:'var(--pink-700)'}" ></i> Mujer
+            </p>
+        </div>
+    </div>
+    <div class="p-col-6" *ngIf="usuarioPadre.persona.id != 0">
+        <div class="box">
+            <p class="label-usuario">Fecha de Nacimiento</p>
+            <p class="value-usuario">{{usuarioPadre.persona.fecha_nacimiento | date:'dd/MM/yyyy'}} <b>{{this.usuarioPadre.persona.edad}} año(s)</b></p>
+        </div>
+    </div>
+    <div class="p-col-3" *ngIf="usuarioPadre.telefono_1.id != 0">
+        <div class="box">
+            <p class="label-usuario">Telefono {{usuarioPadre.telefono_1.tipo}}</p>
+            <p class="value-usuario">{{usuarioPadre.telefono_1.numero}}</p>
+        </div>
+    </div>
+    <div class="p-col-3" *ngIf="usuarioPadre.telefono_2.id != 0">
+        <div class="box">
+            <p class="label-usuario">Telefono {{usuarioPadre.telefono_2.tipo}}</p>
+            <p class="value-usuario">{{usuarioPadre.telefono_2.numero}}</p>
+        </div>
+    </div>
+    <div class="p-col-12" *ngIf="usuarioPadre.direccion.id != 0">
+        <div class="box">
+            <p class="label-usuario">Dirección</p>
+            <p class="value-usuario">{{usuarioPadre.direccion.calle}} {{usuarioPadre.direccion.no_ext}} {{usuarioPadre.direccion.no_int}}, {{usuarioPadre.direccion.colonia}}, {{usuarioPadre.direccion.municipio}}, {{usuarioPadre.direccion.estado}}, {{usuarioPadre.direccion.pais}}, C.P. {{usuarioPadre.direccion.cp}}</p>
+            <p class="label-usuario">Referencia</p>
+            <p class="value-usuario">{{usuarioPadre.direccion.referencia}}</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+::ng-deep .p-card-header {
+    font-weight: bold;
+    padding: 25px;
+    font-size: 25px;
+}
+
+
+
+.contenido{
+    top:-50px;
+}

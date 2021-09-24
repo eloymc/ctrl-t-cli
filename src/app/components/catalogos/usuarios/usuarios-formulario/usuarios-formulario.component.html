@@ -1,0 +1,153 @@
+<div class="p-grid p-fluid">
+    <div class="p-col-12 p-md-6 p-lg-4">
+        <label for="nombre" class="label-usuario">Nombre(s):</label>
+        <div class="p-col">
+            <input id="nombre" type="text" [(ngModel)]="usuarioPadre.persona.nombre" pInputText>
+        </div>
+    </div>
+    <div class="p-col-12 p-md-6 p-lg-4">
+        <label for="apellido_p" class="label-usuario">Apellido Paterno:</label>
+        <div class="p-col">
+            <input id="apellido_p" type="text" [(ngModel)]="usuarioPadre.persona.apellido_p" pInputText>
+        </div>
+    </div>
+    <div class="p-col-12 p-md-6 p-lg-4">
+        <label for="apellido_m" class="label-usuario">Apellido Materno:</label>
+        <div class="p-col">
+            <input id="apellido_m" type="text" [(ngModel)]="usuarioPadre.persona.apellido_m" pInputText>
+        </div>
+    </div>
+    <div class="p-col-12 p-md-6 p-lg-4">
+        <label for="email" class="label-usuario">E-mail:</label>
+        <div class="p-col">
+            <input id="email" type="text" [(ngModel)]="usuarioPadre.email" pInputText>
+        </div>
+    </div>
+    <div class="p-col-6 p-md-4">
+        <label for="activo" class="label-usuario">Activo:</label>
+        <div class="p-col">
+            <p-selectButton [options]="opcionActivo" [(ngModel)]="usuarioPadre.activo" optionLabel="label" optionValue="value"></p-selectButton>
+        </div>
+    </div>
+    <div class="p-col-6 p-md-4">
+        <label for="genero" class="label-usuario">Genero:</label>
+        <div class="p-col">
+            <p-selectButton [options]="opcionGenero" [(ngModel)]="usuarioPadre.persona.genero" optionLabel="label" optionValue="value"></p-selectButton>
+        </div>
+    </div>
+    <div class="p-col-6 p-md-4">
+        <label for="fecha_nacimiento" class="label-usuario">Fecha de nacimiento:</label>
+        <div class="p-col">
+            <p-calendar [(ngModel)]="usuarioPadre.persona.fecha_nacimiento" dateFormat="dd/mm/yy" [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2050" inputId="fecha_nacimiento"></p-calendar>
+        </div>
+    </div>
+    <div class="p-col-12 p-md-6">
+        <label for="calle" class="label-usuario">Direccion:</label>
+        <div class="p-col">
+            <input type="text" pInputText [(ngModel)]="usuarioPadre.direccion.calle"/>
+        </div>
+    </div>
+    <div class="p-col-6 p-md-3">
+        <label for="no_ext" class="label-usuario">No. Exterior:</label>
+        <div class="p-col">
+            <input type="text" pInputText [(ngModel)]="usuarioPadre.direccion.no_ext"/>
+        </div>
+    </div>
+    <div class="p-col-6 p-md-3">
+        <label for="no_int" class="label-usuario">No. Interior:</label>
+        <div class="p-col">
+            <input type="text" pInputText [(ngModel)]="usuarioPadre.direccion.no_int"/>
+        </div>
+    </div>
+    <div class="p-col-6 p-md-3">
+        <label for="cp" class="label-usuario">C.P.:</label>
+        <div class="p-col">
+            <div class="p-inputgroup">
+                <input type="text" pInputText [(ngModel)]="usuarioPadre.direccion.cp"/>   
+                <button type="button" pButton pRipple icon="pi pi-search" styleClass="p-button-warn" (click)="buscarCP()"></button>      
+            </div>
+        </div>
+    </div>
+    <div class="p-col-6 p-md-3">
+        <label for="estado" class="label-usuario">Estado:</label>
+        <div class="p-col">
+            <input type="text" pInputText [(ngModel)]="usuarioPadre.direccion.estado"/>
+        </div>
+    </div>
+    <div class="p-col-6 p-md-3">
+        <label for="municipio" class="label-usuario">Municipio/Alcaldía:</label>
+        <div class="p-col">
+            <input type="text" pInputText [(ngModel)]="usuarioPadre.direccion.municipio"/>
+        </div>
+    </div>
+    <div class="p-col-6 p-md-3">
+        <label for="colonia" class="label-usuario">Colonia:</label>
+        <div class="p-col">
+            
+            <p-dropdown 
+                [options]="listaColonias" 
+                [(ngModel)]="usuarioPadre.direccion.colonia" 
+                optionLabel="asentamiento"
+                optionValue="asentamiento"
+                ></p-dropdown>
+            
+        </div>
+    </div>
+    <div class="p-col-6 p-md-3">
+        <label for="pais" class="label-usuario">Pais:</label>
+        <div class="p-col">
+            <input type="text" pInputText [(ngModel)]="usuarioPadre.direccion.pais"/>
+        </div>
+    </div>
+    <div class="p-col-12">
+        <label for="referencia" class="label-usuario">Referencia:</label>
+        <div class="p-col">
+            <input type="text" pInputText [(ngModel)]="usuarioPadre.direccion.referencia"/>
+        </div>
+    </div>
+    <div class="p-col-6 p-md-3">
+        <label for="telefono1" class="label-usuario">Telefono 1:</label>
+        <div class="p-col">
+            <input type="text" pInputText [(ngModel)]="usuarioPadre.telefono_1.numero"/>
+        </div>
+    </div>
+    <div class="p-col-6 p-md-3">
+        <label for="tipo1" class="label-usuario">Tipo:</label>
+        <div class="p-col">
+            <input type="text" pInputText [(ngModel)]="usuarioPadre.telefono_1.tipo"/>
+        </div>
+    </div>
+    <div class="p-col-6 p-md-3">
+        <label for="telefono2" class="label-usuario">Telefono 2:</label>
+        <div class="p-col">
+            <input type="text" pInputText [(ngModel)]="usuarioPadre.telefono_2.numero"/>
+        </div>
+    </div>
+    <div class="p-col-6 p-md-3">
+        <label for="tipo2" class="label-usuario">Tipo:</label>
+        <div class="p-col">
+            <input type="text" pInputText [(ngModel)]="usuarioPadre.telefono_2.tipo"/>
+        </div>
+    </div>
+</div>
+<p-divider align="right">
+    <p-button label="Guardar" icon="pi pi-save" styleClass="p-button-success" (click)="guardar()"></p-button>
+</p-divider>
+<!--
+
+    <div class="p-grid">
+    
+    </div>
+    <div class="p-field p-grid">
+        <label for="apellido_p" class="p-col-fixed" style="width:150px">Apellido Paterno:</label>
+        <div class="p-col">
+            <input id="apellido_p" type="text" [(ngModel)]="usuarioInformacion.persona.apellido_p" pInputText>
+        </div>
+    </div>
+    <div class="p-field p-grid">
+        <label for="apellido_m" class="p-col-fixed" style="width:150px">Apellido Materno:</label>
+        <div class="p-col">
+            <input id="apellido_m" type="text" [(ngModel)]="usuarioInformacion.persona.apellido_m" pInputText>
+        </div>
+    </div>
+-->
