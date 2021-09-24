@@ -12,6 +12,7 @@ export interface UserInterface {
     direccion:DireccionModel;
     telefono_1:TelefonoModel;
     telefono_2:TelefonoModel;
+    pass_temp:boolean;
 }
 
 export class UserModel implements UserInterface{
@@ -25,6 +26,7 @@ export class UserModel implements UserInterface{
         public direccion: DireccionModel,
         public telefono_1: TelefonoModel,
         public telefono_2: TelefonoModel,
+        public pass_temp: boolean,
     ) {
         
     }

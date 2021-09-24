@@ -47,4 +47,18 @@ export class UsuariosService {
       headers:header
     });
   }
+  reiniciarPassword(email:any){
+    let header:any = new HttpHeaders()
+    .set('Authorization','Bearer '+this.token);
+    return this._http.post(this.url+'/usuarios/reiniciar-password',{"email":email},{
+      headers:header
+    });
+  }
+  cambiarPassword(email:any, password:any){
+    let header:any = new HttpHeaders()
+    .set('Authorization','Bearer '+this.token);
+    return this._http.post(this.url+'/usuarios/cambiar-password',{"email":email,"password":password},{
+      headers:header
+    });
+  }
 }

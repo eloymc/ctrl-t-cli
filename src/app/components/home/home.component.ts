@@ -12,8 +12,12 @@ export class HomeComponent implements OnInit {
     private _router:Router
   ) {
     let token:any = localStorage.getItem('tk'); 
+    let pass_temp:any = localStorage.getItem('pass_temp'); 
     if(!token){
       this._router.navigate(['/index']);
+    }
+    if(pass_temp != 'false'){
+      this._router.navigate(['/cambiar-password']);
     }
   }
 

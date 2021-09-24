@@ -110,6 +110,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsuariosComponent } from './components/catalogos/usuarios/usuarios.component';
 import { UsuariosVistaComponent } from './components/catalogos/usuarios/usuarios-vista/usuarios-vista.component';
 import { UsuariosFormularioComponent } from './components/catalogos/usuarios/usuarios-formulario/usuarios-formulario.component';
+import { MessageService } from 'primeng/api';
+import { CambiarPasswordComponent } from './components/cambiar-password/cambiar-password.component';
 
 
 @NgModule({
@@ -123,7 +125,8 @@ import { UsuariosFormularioComponent } from './components/catalogos/usuarios/usu
     DashboardComponent,
     UsuariosComponent,
     UsuariosVistaComponent,
-    UsuariosFormularioComponent
+    UsuariosFormularioComponent,
+    CambiarPasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -227,7 +230,7 @@ import { UsuariosFormularioComponent } from './components/catalogos/usuarios/usu
     ReactiveFormsModule
   ],
   providers: [
-    LoginService
+    LoginService, MessageService
   ],
   bootstrap: [AppComponent]
 })

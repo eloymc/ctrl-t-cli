@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuItem } from 'primeng/api';
+import { MenuItem, MessageService } from 'primeng/api';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 import { UserModel } from '../../../models/user';
 import { PersonaInterface, PersonaModel } from '../../../models/persona';
@@ -19,9 +19,11 @@ export class UsuariosComponent implements OnInit {
   resultadoBusqueda: any = [];
   usuarioInformacion:UserModel;
   etapa:any = null;
+  enviandoPassword:boolean = false;
 
   constructor(
-    private _usuario:UsuariosService
+    private _usuario:UsuariosService,
+    private messageService: MessageService
   ) {
     let fecha:Date=new Date();
     let persona:PersonaInterface = new PersonaModel(
@@ -45,7 +47,8 @@ export class UsuariosComponent implements OnInit {
       persona:persona,
       direccion:direccion,
       telefono_1:telefono1,
-      telefono_2:telefono2
+      telefono_2:telefono2,
+      pass_temp:false
     };
   }
 
@@ -88,7 +91,8 @@ export class UsuariosComponent implements OnInit {
       persona:persona,
       direccion:direccion,
       telefono_1:telefono1,
-      telefono_2:telefono2
+      telefono_2:telefono2,
+      pass_temp:false
     };
   }
 
@@ -151,5 +155,25 @@ export class UsuariosComponent implements OnInit {
     this.usuarioSelect = [];
     this.reiniciarModel();
     this.etapa = 'formulario';
+  }
+
+  solicitarReinicioPassword(){
+    this.enviandoPassword = true;
+    this._usuario.reiniciarPassword(this.usuarioInformacion.email).subscribe(
+      data=>{
+        if(data == "Correo enviado"){
+          this.messageService.add({severity:'success', summary:'Listo! ', detail:'El correo fue enviado'});
+          this.enviandoPassword = false;
+        }else{
+          this.messageService.add({severity:'error', summary:'Ups! ', detail:'Hubo un error al enviar el correo'});
+          this.enviandoPassword = false;
+        }
+      },
+      error=>{
+        console.log(error);
+        this.messageService.add({severity:'error', summary:'Ups! ', detail:'Hubo un error al enviar el correo'});
+        this.enviandoPassword = false;
+      }
+    );
   }
 }

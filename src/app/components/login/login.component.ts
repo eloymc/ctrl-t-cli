@@ -45,7 +45,12 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('n',datos.user.id);
         localStorage.setItem('usuario',datos.user.name);
         localStorage.setItem('email',datos.user.email);
-        this._router.navigate(['/home']);
+        localStorage.setItem('pass_temp',datos.user.pass_temp);
+        if(datos.user.pass_temp){
+          this._router.navigate(['/cambiar-password']);
+        }else{
+          this._router.navigate(['/home']);
+        }
       },
       error=>{
         console.log(error);

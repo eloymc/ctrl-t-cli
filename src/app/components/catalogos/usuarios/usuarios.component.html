@@ -1,4 +1,5 @@
 <app-header></app-header>
+<p-toast></p-toast>
 <div class="conteiner p-grid p-d-flex p-jc-center">
     <p-card class="p-col-12 p-md-10 p-lg-8">
         <div class="contenido">
@@ -33,7 +34,11 @@
                 <div *ngIf="etapa == 'vista'">
                     <app-usuarios-vista [usuarioPadre]="usuarioInformacion"></app-usuarios-vista>
                     <p-divider align="right">
-                        <p-button label="Editar" icon="pi pi-pencil" styleClass="p-button-warning" (click)="etapa='formulario'"></p-button>
+                        <p-button label="Editar" icon="pi pi-pencil" styleClass="p-button-info" (click)="etapa='formulario'"></p-button>
+                    </p-divider>
+                    <p-divider align="right">
+                        <i class="pi pi-spin pi-spinner" style="font-size: 2rem" *ngIf="enviandoPassword"></i>
+                        <p-button label="Reiniciar Contraseña" icon="pi pi-replay" styleClass="p-button-info" (click)="solicitarReinicioPassword()"></p-button>
                     </p-divider>
                 </div>
                 <div *ngIf="etapa == 'formulario'">
